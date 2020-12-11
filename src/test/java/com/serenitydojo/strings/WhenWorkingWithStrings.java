@@ -150,4 +150,17 @@ public class WhenWorkingWithStrings {
         assertThat(min).isEqualTo(10);
 
     }
+
+    @Test
+    public void beforeButtonPress(){
+        String beforeText = driver.findElement(By.cssSelector(".label")).getText();
+        assertThat(beforeText).isEqualTo("Button not pressed");
+    }
+
+    @Test
+    public void afterButtonPress(){
+        driver.findElement(By.id("confirm")).click();
+        String afterText = driver.findElement(By.cssSelector(".label")).getText();
+        assertThat(afterText).isEqualTo("Button pressed");
+    }
 }
